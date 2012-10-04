@@ -48,6 +48,10 @@ module Urbanairship
     def feedback(time)
       do_request(:get, "/api/device_tokens/feedback/?since=#{format_time(time)}", :authenticate_with => :master_secret)
     end
+    
+    def stats(start_time, end_time)
+      do_request(:get, "/api/push/stats/?start=#{format_time(start_time)}&end=#{format_time(end_time)}", :authenticate_with => :master_secret)
+    end
 
     private
 
